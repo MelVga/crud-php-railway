@@ -1,8 +1,9 @@
 FROM php:8.2-apache
 
+# Copia los archivos de tu CRUD
 COPY public/ /var/www/html/
 
-# ✅ Da permisos de escritura al archivo data.json
-RUN chmod 666 /var/www/html/data.json
+# Crea el archivo data.json con permisos de escritura
+RUN touch /var/www/html/data.json && chmod 666 /var/www/html/data.json
 
 EXPOSE 80
