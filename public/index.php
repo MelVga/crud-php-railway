@@ -7,6 +7,10 @@
 <body>
     <h1>Lista de registros</h1>
     <?php
+    $json_path = "/tmp/data.json";
+    if (!file_exists($json_path)) {
+        copy(_DIR_ . "/../data/data.json", $json_path);
+    }
     $data = json_decode(file_get_contents("data.json"), true);
     echo "<table><tr><th>Nombre</th><th>Acciones</th></tr>";
     foreach ($data as $id => $item) {
